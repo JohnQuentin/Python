@@ -1,0 +1,7 @@
+import numpy as np
+array1 = np.arange(100000)
+array2 = list(range(100000))
+%time for i in range(10): my_array1 = array1 * 2
+#Wall time: 724 µs
+%time for i in range(10): my_array2 = [2*x for x in array2]
+#Wall time: 57.8 ms
