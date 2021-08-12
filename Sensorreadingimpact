@@ -1,0 +1,39 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+%matplotlib inline
+from mpl_toolkits import mplot3d
+from matplotlib import cm
+
+df = pd.read_csv (r'test.csv',delimiter = ";")
+print (df)
+
+plt.figure(figsize=(20,40))
+plt.plot(df['X'],"^",df['Y'],"*",df['Z'],"o")
+
+plt.figure(figsize=(20,40))
+x = df['X']
+y = df['Time']
+plt.scatter(x,y)
+plt.savefig("image1.png")
+
+fig = plt.figure(figsize=(30,30))
+ax = plt.axes(projection='3d')
+
+z = df["X"]
+x = df["Z"]
+y = df["Y"]
+ax.plot3D(x, y, z, 'green')
+plt.savefig("scatterplotAS.png")
+
+fig = plt.figure(figsize=(30,30))
+ax = plt.axes(projection='3d')
+
+z = df["X"]
+x = df["Z"]
+y = df["Y"]
+ax.scatter3D(x, y, z, s=90, c=y, cmap = cm.coolwarm)
+
+ax.view_init(140, 160)
+
+plt.savefig("scatterplotAS.png")
